@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -69,7 +68,7 @@ export default function HomePage() {
       <section className="max-w-5xl mx-auto px-4 py-16">
         <h2 className="text-xl font-semibold text-white text-center mb-2">Built for professionals who are focused</h2>
         <p className="text-center text-purple-200/45 text-sm mb-10 max-w-xl mx-auto">
-          We do not take everyone. We curate people who take responsibility for their attendance and their growth.
+          We curate people who take responsibility for their attendance and their growth.
         </p>
         <div className="grid gap-5 sm:grid-cols-3">
           {[
