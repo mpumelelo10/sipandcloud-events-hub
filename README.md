@@ -1,6 +1,6 @@
 # Sip & Cloud Tech – Events Hub
 
-**Live target:** https://events.sipandcloud.co.za (or sipandcloud-events-hub.netlify.app)
+**Live target:** https://your-site.example (or sipandcloud-events-hub.netlify.app)
 
 **Positioning:** Automated home for cloud, AI & tech opportunities in Africa — designed for busy professionals.  
 **Monetization ready:** Event hosts can charge tickets. Sip & Cloud takes a platform fee (default 10%). Attendees get QR tickets, connections, and personalized opportunities.
@@ -52,17 +52,23 @@
    - Publish directory: leave default (Netlify Next.js runtime handles it)
 
 ### 2. Environment variables
-In Netlify → Site settings → Environment variables, add:
+Copy `.env.example` to `.env.local` for local development and fill in your own values. In Netlify → Site configuration → Environment variables, set the same variables with the appropriate values for each deploy context. Keep private keys and `CHECKIN_SECRET` server-only; never give them a `NEXT_PUBLIC_` prefix. Generate a unique random value for `CHECKIN_SECRET`.
+
+The template intentionally contains no values. `NEXT_PUBLIC_SITE_URL` is a public URL and is excluded from value scanning because it appears in page metadata. All other variables remain subject to secrets scanning.
+
+Required configuration includes:
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
-NEXT_PUBLIC_SITE_URL=https://events.sipandcloud.co.za
+NEXT_PUBLIC_SITE_URL=
 RESEND_API_KEY=
-EMAIL_FROM=Sip & Cloud Tech <tickets@sipandcloud.co.za>
-CHECKIN_SECRET=generate-a-long-random-string
+EMAIL_FROM=
+CHECKIN_SECRET=
 ```
+
+If a real credential was previously committed or exposed in a deploy, rotate it at its provider and update Netlify. Removing it from current files does not revoke it or erase Git history.
 
 ### 3. Custom domain
 Domain management → Add domain `events.sipandcloud.co.za` and update your DNS.

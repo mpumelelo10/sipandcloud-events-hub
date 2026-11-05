@@ -6,6 +6,9 @@
   package = "@netlify/plugin-nextjs"
 
 [build.environment]
+  # Public page metadata intentionally includes the site's public URL.
+  # Keep scanning enabled for all private credentials and other variables.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL"
   NODE_VERSION = "20"
 
 # Free tier friendly – no secrets required for the initial public pages to render
