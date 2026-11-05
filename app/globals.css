@@ -4,13 +4,35 @@
 
 :root {
   color-scheme: dark;
+  --brand-pink: #f0b4c0;
+  --brand-rose: #e8a0b0;
+  --brand-purple: #a78bfa;
+  --brand-deep: #1e0a2e;
+  --brand-mid: #2d1b4e;
 }
 
 body {
-  background-color: #020617;
+  background-color: #0f0618;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(167, 139, 250, 0.18), transparent);
 }
 
 ::selection {
-  background-color: #4f46e5;
+  background-color: #a78bfa;
   color: white;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #f0b4c0 0%, #c4b5fd 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-brand {
+  background: linear-gradient(135deg, #e8a0b0, #a78bfa);
+  color: white;
+}
+
+.btn-brand:hover {
+  filter: brightness(1.1);
 }
