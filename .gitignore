@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.netlify/
+out/
+*.tsbuildinfo
+
+# Local environment files contain deployment-specific credentials.
+.env
+.env.*
+!.env.example
