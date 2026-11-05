@@ -5,6 +5,44 @@ import Link from 'next/link';
 
 export default function PreferencesPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    try {
+      const res = await fetch('/api/preferences', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fd.get('name'),
+          email: fd.get('email'),
+          city: fd.get('city'),
+          focus: fd.get('focus'),
+          why: fd.get('why'),
+        }),
+      });
+
+      const json = await res.json();
+      if (!res.ok) {
+        setError(json.error || 'Something went wrong. Please try again.');
+        setLoading(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   if (submitted) {
     return (
@@ -14,7 +52,7 @@ export default function PreferencesPage() {
           <h1 className="text-2xl font-bold text-white mb-2">Request received</h1>
           <p className="text-purple-100/55 mb-2 text-sm">Your Network is Your Networth.</p>
           <p className="text-sm text-purple-200/40 mb-8 leading-relaxed">
-            We review membership requests carefully. You will hear from us by email if your profile is a fit for the community.
+            Your details are saved. We will review and be in touch by email.
           </p>
           <Link href="/" className="text-pink-300 hover:text-pink-200 text-sm font-medium">← Back to home</Link>
         </div>
@@ -35,23 +73,10 @@ export default function PreferencesPage() {
         <p className="text-pink-300 text-xs font-semibold tracking-[0.15em] uppercase mb-2">Membership</p>
         <h1 className="text-2xl font-bold text-white mb-2">Request to join</h1>
         <p className="text-purple-100/50 mb-8 text-sm leading-relaxed">
-          This is not an open signup. We select professionals who are focused, continuously learning, and who take responsibility for their RSVPs. Your time is valuable — so is everyone else's.
+          Tell us who you are. We prioritise professionals who are continuously learning and respect other people&apos;s time.
         </p>
 
-        {/* Netlify Forms — works immediately, no backend required */}
-        <form
-          name="membership-request"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          onSubmit={() => setSubmitted(true)}
-          className="space-y-5"
-        >
-          <input type="hidden" name="form-name" value="membership-request" />
-          <p className="hidden">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
-
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm text-purple-200/60 mb-1.5">Full name</label>
             <input required name="name" type="text"
@@ -89,8 +114,13 @@ export default function PreferencesPage() {
               className="w-full bg-white/5 border border-purple-500/20 rounded-xl px-3.5 py-2.5 text-white placeholder:text-purple-200/30 focus:outline-none focus:ring-2 focus:ring-pink-400/40 resize-none" />
           </div>
 
-          <button type="submit" className="w-full btn-brand font-semibold py-3 rounded-full transition shadow-lg shadow-pink-900/25">
-            Submit membership request
+          {error && (
+            <p className="text-sm text-red-400">{error}</p>
+          )}
+
+          <button type="submit" disabled={loading}
+            className="w-full btn-brand font-semibold py-3 rounded-full transition shadow-lg shadow-pink-900/25 disabled:opacity-60">
+            {loading ? 'Saving…' : 'Submit membership request'}
           </button>
 
           <p className="text-xs text-purple-200/35 text-center leading-relaxed">
