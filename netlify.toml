@@ -2,11 +2,9 @@
   command = "npm run build"
   publish = ".next"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
 [build.environment]
   NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
 
-# Free tier friendly – no secrets required for the initial public pages to render
-# Add real env vars later in Netlify UI when you have Supabase + Resend ready
+# Netlify automatically detects Next.js and uses the essential plugin.
+# Do not force an extra plugin package that is not in package.json.

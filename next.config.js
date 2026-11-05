@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: '**.supabase.co' },
-      { protocol: 'https', hostname: 'qr.cloudboost.co.za' },
-      { protocol: 'https', hostname: '**.netlify.app' },
-    ],
+    unoptimized: true,
   },
 };
 
