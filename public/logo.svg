@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none">
+  <!-- Soft glow -->
+  <defs>
+    <linearGradient id="scGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="50%" stop-color="#C026D3"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <!-- Cloud shape behind -->
+  <ellipse cx="160" cy="95" rx="95" ry="55" fill="url(#cloudGrad)" opacity="0.25"/>
+  <!-- S letter stylized -->
+  <path d="M95 55 C60 55 50 80 70 95 C90 110 70 130 95 130 C125 130 135 105 115 90 C95 75 115 55 95 55Z" fill="url(#scGrad)" stroke="#F9A8D4" stroke-width="3"/>
+  <!-- C letter stylized -->
+  <path d="M175 55 C145 55 135 85 150 100 C165 115 155 130 180 130 C210 130 225 100 210 80 C195 60 195 55 175 55Z" fill="url(#scGrad)" stroke="#F9A8D4" stroke-width="3"/>
+  <!-- Flamingo circle accent -->
+  <circle cx="245" cy="48" r="18" fill="#F472B6"/>
+  <text x="245" y="54" text-anchor="middle" font-size="16">🦩</text>
+  <!-- Coffee cup small -->
+  <rect x="148" y="38" width="14" height="12" rx="2" fill="#FDF2F8" stroke="#EC4899" stroke-width="1.5"/>
+  <path d="M162 42 h4 a3 3 0 0 1 0 6 h-4" fill="none" stroke="#EC4899" stroke-width="1.5"/>
+  <!-- Text -->
+  <text x="160" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700" font-size="22" fill="#BE185D">SIP AND CLOUD TECH</text>
+  <text x="160" y="198" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#A78BFA" letter-spacing="1.5">YOUR NETWORK IS YOUR NETWORTH</text>
+</svg>

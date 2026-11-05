@@ -1,20 +1,24 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
     <div className="min-h-screen text-slate-100">
       {/* Nav */}
-      <header className="border-b border-purple-900/40 sticky top-0 z-50 bg-[#0f0618]/90 backdrop-blur">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link href="/" className="font-semibold text-white tracking-tight flex items-center gap-2">
-            <span className="w-7 h-7 rounded-full bg-gradient-to-br from-pink-300 to-purple-400 flex items-center justify-center text-xs font-bold text-[#1e0a2e]">SC</span>
-            Sip & Cloud <span className="text-pink-300">Events</span>
+      <header className="border-b border-pink-900/20 sticky top-0 z-50 bg-[#0c0614]/95 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            <img src="/logo.svg" alt="Sip and Cloud Tech" className="h-10 w-auto" />
+            <span className="hidden sm:block font-semibold tracking-tight text-white">
+              Sip & Cloud <span className="text-pink-300">Events</span>
+            </span>
           </Link>
           <nav className="flex items-center gap-5 text-sm">
             <Link href="/events" className="text-purple-200/70 hover:text-white transition">Events</Link>
             <Link href="/opportunities" className="text-purple-200/70 hover:text-white transition">Opportunities</Link>
+            <Link href="/learn" className="text-purple-200/70 hover:text-white transition">Learn</Link>
             <Link href="/host" className="text-purple-200/70 hover:text-white transition">Host</Link>
-            <Link href="/preferences" className="btn-brand px-3.5 py-1.5 rounded-full text-sm font-medium transition shadow-lg shadow-purple-900/40">
+            <Link href="/preferences" className="btn-brand px-4 py-1.5 rounded-full text-sm font-medium shadow-lg shadow-pink-900/30">
               Join
             </Link>
           </nav>
@@ -23,100 +27,120 @@ export default function HomePage() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950/50 via-transparent to-transparent pointer-events-none" />
-        <div className="relative max-w-5xl mx-auto px-4 pt-20 pb-24 text-center">
-          <p className="text-pink-300/90 text-sm font-medium tracking-widest uppercase mb-4">
-            Your network is your net worth
+        <div className="relative max-w-5xl mx-auto px-4 pt-16 pb-20 text-center">
+          <div className="flex justify-center mb-8">
+            <img src="/logo.svg" alt="Sip and Cloud Tech" className="h-28 w-auto opacity-95" />
+          </div>
+          <p className="text-pink-300 text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            Your Network is Your Networth
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight max-w-3xl mx-auto">
-            Your automated home for{' '}
-            <span className="brand-gradient">cloud, AI & tech</span>{' '}
-            opportunities
+          <h1 className="text-3xl sm:text-5xl font-bold text-white leading-tight tracking-tight max-w-3xl mx-auto">
+            Curated events & opportunities for{' '}
+            <span className="brand-gradient">serious professionals</span>
           </h1>
-          <p className="mt-6 text-lg text-purple-100/60 max-w-2xl mx-auto leading-relaxed">
-            Get the right events and verified opportunities near you — designed for professionals who don't have time to browse.
+          <p className="mt-6 text-base sm:text-lg text-purple-100/55 max-w-2xl mx-auto leading-relaxed">
+            No noise. No random crowds. Only verified events, selective community members, and continuous learning that opens real doors. Built for people who treat their time and network as capital.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/preferences"
-              className="inline-flex items-center justify-center btn-brand font-semibold px-7 py-3.5 rounded-full transition shadow-lg shadow-purple-900/40"
+              className="inline-flex items-center justify-center btn-brand font-semibold px-8 py-3.5 rounded-full transition shadow-lg shadow-pink-900/30"
             >
-              Join the Community
+              Request Membership
             </Link>
             <Link
               href="/events"
-              className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 text-white font-medium px-7 py-3.5 rounded-full transition border border-purple-400/20"
+              className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 text-white font-medium px-8 py-3.5 rounded-full transition border border-purple-400/20"
             >
-              View Events Near Me
+              View Curated Events
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Trust strip */}
-      <div className="border-y border-purple-900/30 bg-purple-950/20">
-        <div className="max-w-5xl mx-auto px-4 py-4 text-center text-sm text-purple-200/50">
-          Built for professionals who don't have time to browse · Powered by Sip & Cloud Tech · Cape Town & beyond
+      {/* Trust bar */}
+      <div className="border-y border-pink-900/15 bg-pink-950/10">
+        <div className="max-w-5xl mx-auto px-4 py-3.5 text-center text-xs sm:text-sm text-purple-200/45 tracking-wide">
+          SELECTIVE · VERIFIED · RESPONSIBLE RSVP · CONTINUOUS LEARNING · CAPE TOWN & BEYOND
         </div>
       </div>
 
-      {/* How it works */}
-      <section className="max-w-5xl mx-auto px-4 py-20">
-        <h2 className="text-2xl font-bold text-white text-center mb-3">How it works</h2>
-        <p className="text-center text-purple-200/50 mb-12 text-sm">Your network is your net worth — we help you grow it automatically.</p>
-        <div className="grid gap-8 sm:grid-cols-3">
+      {/* Principles */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <h2 className="text-xl font-semibold text-white text-center mb-2">Built for professionals who are focused</h2>
+        <p className="text-center text-purple-200/45 text-sm mb-10 max-w-xl mx-auto">
+          We do not take everyone. We curate people who take responsibility for their attendance and their growth.
+        </p>
+        <div className="grid gap-5 sm:grid-cols-3">
           {[
-            { step: '01', title: 'Tell us once', body: 'Share your city and interests in 30 seconds. We remember and match you.' },
-            { step: '02', title: 'Receive smart alerts', body: 'Only verified events and opportunities that fit your profile. No noise.' },
-            { step: '03', title: 'RSVP & connect', body: 'One click → personal QR ticket. Meet the right people. Grow your network.' },
+            { title: 'Selective membership', body: 'Application-based. We prioritise professionals who are continuously learning and respect other people\'s time.' },
+            { title: 'Verified only', body: 'Every event and opportunity is reviewed. No spam listings. No unverified hosts. Your network stays high-signal.' },
+            { title: 'Responsible RSVP', body: 'Confirm, update or cancel cleanly. QR check-in. Hosts see real commitment. No-shows are visible.' },
           ].map((item) => (
-            <div key={item.step} className="text-center p-6 rounded-2xl bg-white/[0.03] border border-purple-500/10">
-              <div className="text-pink-300/80 font-mono text-sm mb-3">{item.step}</div>
-              <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+            <div key={item.title} className="card-glass rounded-2xl p-6">
+              <h3 className="font-semibold text-pink-200 mb-2">{item.title}</h3>
               <p className="text-sm text-purple-100/50 leading-relaxed">{item.body}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Member vs Guest */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
-        <div className="grid sm:grid-cols-2 gap-6">
+      {/* Continuous learning */}
+      <section className="max-w-5xl mx-auto px-4 py-12">
+        <div className="card-glass rounded-2xl p-8 sm:p-10">
+          <p className="text-pink-300/80 text-xs font-semibold tracking-widest uppercase mb-2">Continuous learning</p>
+          <h2 className="text-2xl font-bold text-white mb-3">Skills that open employment</h2>
+          <p className="text-purple-100/50 text-sm max-w-2xl mb-6 leading-relaxed">
+            Members receive a personalised stream of free, high-signal learning paths — cloud, AI, media and emerging tech — chosen because they currently open jobs. Not noise. Not trends for trends\' sake.
+          </p>
+          <Link href="/learn" className="text-sm font-medium text-pink-300 hover:text-pink-200">
+            Explore learning paths →
+          </Link>
+        </div>
+      </section>
+
+      {/* Two doors */}
+      <section className="max-w-5xl mx-auto px-4 py-12">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="rounded-2xl border border-pink-400/20 bg-gradient-to-br from-pink-500/10 to-transparent p-8">
             <h3 className="text-lg font-semibold text-pink-200 mb-2">Community Members</h3>
-            <p className="text-sm text-purple-100/60 mb-4">Full access to verified opportunities, private events, connection matching and personalised alerts.</p>
-            <Link href="/preferences" className="text-sm text-pink-300 hover:text-pink-200 font-medium">Become a member →</Link>
+            <p className="text-sm text-purple-100/55 mb-5 leading-relaxed">
+              Verified opportunities, private events, connection matching, personalised skill alerts. For professionals who already know why they are in tech.
+            </p>
+            <Link href="/preferences" className="text-sm font-medium text-pink-300 hover:text-pink-200">Request membership →</Link>
           </div>
-          <div className="rounded-2xl border border-purple-500/15 bg-white/[0.02] p-8">
+          <div className="card-glass rounded-2xl p-8">
             <h3 className="text-lg font-semibold text-purple-200 mb-2">Event Hosts & Speakers</h3>
-            <p className="text-sm text-purple-100/60 mb-4">Create events, manage RSVPs, scan QR tickets, view attendee insights and receive payouts.</p>
-            <Link href="/host" className="text-sm text-purple-300 hover:text-purple-200 font-medium">Host dashboard →</Link>
+            <p className="text-sm text-purple-100/55 mb-5 leading-relaxed">
+              Create formal events, manage RSVPs, scan QR tickets branded with Sip & Cloud, view attendance, and receive payouts (platform fee 10%).
+            </p>
+            <Link href="/host" className="text-sm font-medium text-purple-300 hover:text-purple-200">Host dashboard →</Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="max-w-5xl mx-auto px-4 py-20 text-center">
-        <p className="text-pink-300/80 text-sm font-medium tracking-wide mb-3">YOUR NETWORK IS YOUR NET WORTH</p>
-        <h2 className="text-3xl font-bold text-white mb-4">Start growing yours today</h2>
-        <p className="text-purple-100/50 mb-8 max-w-lg mx-auto">
-          Join free. Takes less than a minute. Built for people who value connection and time.
+      <section className="max-w-5xl mx-auto px-4 py-16 text-center">
+        <img src="/logo.svg" alt="" className="h-16 w-auto mx-auto mb-6 opacity-80" />
+        <p className="text-pink-300 text-sm font-semibold tracking-[0.15em] uppercase mb-3">Your Network is Your Networth</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Protect your time. Grow your network.</h2>
+        <p className="text-purple-100/50 mb-8 max-w-md mx-auto text-sm">
+          Membership is selective. We built this for mature professionals who continuously learn and show up when they say they will.
         </p>
         <Link
           href="/preferences"
-          className="inline-flex items-center justify-center btn-brand font-semibold px-8 py-3.5 rounded-full transition shadow-lg shadow-purple-900/40"
+          className="inline-flex items-center justify-center btn-brand font-semibold px-8 py-3.5 rounded-full transition shadow-lg shadow-pink-900/30"
         >
-          Join free
+          Request Membership
         </Link>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-purple-900/30 py-10">
+      <footer className="border-t border-pink-900/20 py-10">
         <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-purple-200/40">
-          <div>
-            <span className="text-white/80 font-medium">Sip & Cloud Tech</span>
-            <span className="mx-2">·</span>
-            Happy Cloud, Happy Explorers
+          <div className="flex items-center gap-3">
+            <img src="/logo.svg" alt="" className="h-8 w-auto opacity-70" />
+            <span>Happy Cloud, Happy Explorers</span>
           </div>
           <div className="flex gap-6">
             <a href="https://sipandcloud.co.za" className="hover:text-pink-300 transition">Company</a>
